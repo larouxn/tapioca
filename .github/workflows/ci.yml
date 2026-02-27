@@ -49,6 +49,8 @@ jobs:
           - ruby: "3.2"
             rails: "main"
         include:
+          - rails: "8.0"
+            rails_ref: "ec62932ee7d31e0ef870e61c2d7de2c3efe3faa6"
           - rails: "main"
             experimental: true
           - ruby: "head"
@@ -56,6 +58,7 @@ jobs:
     name: Ruby ${{ matrix.ruby }} - Rails ${{ matrix.rails }} - RubyGems ${{ matrix.rubygems }}
     env:
       RAILS_VERSION: ${{ matrix.rails }}
+      RAILS_REF: ${{ matrix.rails_ref }}
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - name: Install protobuf

@@ -23,8 +23,12 @@ group :deployment, :development do
   gem "rake"
 end
 
+rails_ref = ENV["RAILS_REF"]
+
 group :development, :test do
-  if rails_version == "main"
+  if rails_ref
+    gem "rails", github: "rails/rails", ref: rails_ref
+  elsif rails_version == "main"
     gem "rails", github: "rails/rails", branch: "main"
   else
     rails_version = CURRENT_RAILS_VERSION if rails_version == "current"
