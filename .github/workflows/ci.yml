@@ -4,6 +4,7 @@ on:
   push:
     branches:
     - main
+    - minitest_cleanup
   pull_request:
 
 env:
